@@ -1,3 +1,6 @@
+//OOP - OBJECT ORIENTED PROGRAMING
+
+
 //classes is blueprints for objects
 class users {
     //the constructor makes objects of instances from the class    
@@ -69,3 +72,47 @@ class login {
 const sevat = new login(`sevat`, `28472647`);
 sevat.displayInfo(); // output - sevat has an undefined, but its private
 console.log(sevat.getUserId()); // output - 28472647
+
+
+
+//static methodes, can not be called by instances
+class MathHelper {
+    static add(a, b) {
+      return a + b;
+    }
+  }
+  
+  console.log(MathHelper.add(5, 3));  // Output: 8
+
+
+
+
+
+  //full example
+  class Employee {
+    #salary;  // Private field
+  
+    constructor(name, position, salary) {
+      this.name = name;
+      this.position = position;
+      this.#salary = salary;
+    }
+  
+    // Public method
+    describe() {
+      console.log(`${this.name} works as a ${this.position}.`);
+    }
+  
+    // Private method to calculate yearly salary
+    #calculateYearlySalary() {
+      return this.#salary * 12;
+    }
+  
+    getSalary() {
+      return this.#calculateYearlySalary();
+    }
+  }
+  
+  const emp = new Employee('Alice', 'Developer', 5000);
+  emp.describe();  // Output: Alice works as a Developer.
+  console.log(`Yearly salary: $${emp.getSalary()}`);  // Output: Yearly salary: $60000 
